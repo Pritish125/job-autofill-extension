@@ -14,6 +14,10 @@
         
         <div class="status-container">
             <div id="status" class="status">Ready to assist</div>
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <span>Generating response...</span>
+            </div>
         </div>
 
         <div class="instructions">
@@ -39,8 +43,8 @@
         <div id="settings-panel" class="settings hidden">
             <h2>Settings</h2>
             <div class="setting-item">
-                <label for="api-key">Gemini API Key:</label>
-                <input type="password" id="api-key" placeholder="Enter your API key">
+                <label for="memory-content">Your Information:</label>
+                <textarea id="memory-content" placeholder="Paste your memory.txt content here" rows="10"></textarea>
             </div>
             <div class="setting-item">
                 <label for="word-limit">Word Limit:</label>
@@ -53,7 +57,7 @@
                     <option value="200">200 words</option>
                 </select>
             </div>
-            <button id="save-settings" class="btn small">Save Settings</button>
+            <button id="save-settings" class="btn primary">Save Settings</button>
         </div>
     </div>
     <script src="popup.js"></script>

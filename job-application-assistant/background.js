@@ -1,34 +1,12 @@
 // Listen for messages from content script
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.action === 'generateResponseForText') {
-        generateResponseForText(request.text, request.wordLimit)
+        generateResponseForText(request.text, request.wordLimit, request.memoryContent)
             .then(response => sendResponse({ text: response }))
             .catch(error => sendResponse({ error: error.message }));
         return true; // Required for async response
     }
 });
-
-async function generateResponseForText(text, wordLimit = 50) {
-    return new Promise((resolve, reject) => {
-        // Get the Gemini API key from storage
-        chrome.storage.local.get(['config'], function(result) {
-            if (!result.config || !result.config.apiKey) {
-                reject(new Error('Gemini API key not found'));
-                return;
-            }
-
-            // Get the memory data
-            fetch(chrome.runtime.getURL('memory.txt'))
-                .then(response => response.text())
-                .then(memoryData => {
-                    const prompt = createPromptForText(text, memoryData, wordLimit);
-                    return callGeminiAPI(prompt, result.config.apiKey);
-                })
-                .then(response => resolve(response))
-                .catch(error => reject(error));
-        });
-    });
-}
 
 function createPromptForText(text, memoryData, wordLimit) {
     return `Using the following personal information:
@@ -46,6 +24,21 @@ The response should be:
 - Maintain professional tone
 - Include specific metrics or results when possible
 - Based on the provided personal information`;
+}
+
+async function generateResponseForText(text, wordLimit = 50, memoryContent) {
+    if (!memoryContent) {
+        throw new Error('Personal information not found. Please enter your information in the settings.');
+    }
+
+    // Get the API key from storage
+    const result = await chrome.storage.local.get(['config']);
+    if (!result.config || !result.config.apiKey) {
+        throw new Error('API key not found');
+    }
+
+    const prompt = createPromptForText(text, memoryContent, wordLimit);
+    return callGeminiAPI(prompt, result.config.apiKey);
 }
 
 async function callGeminiAPI(prompt, apiKey) {

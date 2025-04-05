@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Get DOM elements
     const statusElement = document.getElementById('status');
+    const loadingElement = document.getElementById('loading');
     const generateButton = document.getElementById('generate-response');
     const responseElement = document.getElementById('response');
     const formalButton = document.getElementById('formal');
@@ -9,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const copyButton = document.getElementById('copy');
     const settingsToggle = document.getElementById('settings-toggle');
     const settingsPanel = document.getElementById('settings-panel');
-    const apiKeyInput = document.getElementById('api-key');
+    const memoryContentInput = document.getElementById('memory-content');
     const wordLimitSelect = document.getElementById('word-limit');
     const saveSettingsButton = document.getElementById('save-settings');
 
@@ -23,28 +24,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Save settings
     saveSettingsButton.addEventListener('click', function() {
-        const apiKey = apiKeyInput.value.trim();
+        const memoryContent = memoryContentInput.value.trim();
         const wordLimit = parseInt(wordLimitSelect.value);
         
-        if (apiKey) {
-            config.apiKey = apiKey;
+        if (memoryContent) {
+            config.memoryContent = memoryContent;
             config.wordLimit = wordLimit;
             saveConfig();
             updateStatus('Settings saved successfully', 'success');
             settingsPanel.classList.add('hidden');
         } else {
-            updateStatus('Please enter a valid API key', 'error');
+            updateStatus('Please enter your personal information', 'error');
         }
     });
 
     // Generate response for selected text
     generateButton.addEventListener('click', function() {
-        if (!config.apiKey) {
-            updateStatus('Please set your API key first', 'error');
+        if (!config.memoryContent) {
+            updateStatus('Please enter your personal information first', 'error');
             settingsPanel.classList.remove('hidden');
             return;
         }
         
+        showLoading();
         updateStatus('Generating response...');
         
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -54,8 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }).then(() => {
                 chrome.tabs.sendMessage(tabs[0].id, {
                     action: 'generateResponse',
-                    wordLimit: config.wordLimit
+                    wordLimit: config.wordLimit,
+                    memoryContent: config.memoryContent
                 }, function(response) {
+                    hideLoading();
                     if (chrome.runtime.lastError) {
                         updateStatus('Please select some text first', 'error');
                         return;
@@ -71,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             }).catch(error => {
+                hideLoading();
                 updateStatus('Error: ' + error.message, 'error');
             });
         });
@@ -105,12 +110,22 @@ document.addEventListener('DOMContentLoaded', function() {
         statusElement.className = 'status ' + type;
     }
 
+    function showLoading() {
+        loadingElement.classList.remove('hidden');
+        generateButton.disabled = true;
+    }
+
+    function hideLoading() {
+        loadingElement.classList.add('hidden');
+        generateButton.disabled = false;
+    }
+
     function loadSettings() {
         chrome.storage.local.get(['config'], function(result) {
             if (result.config) {
-                config.apiKey = result.config.apiKey;
+                config.memoryContent = result.config.memoryContent;
                 config.wordLimit = result.config.wordLimit;
-                apiKeyInput.value = config.apiKey;
+                memoryContentInput.value = config.memoryContent;
                 wordLimitSelect.value = config.wordLimit;
             }
         });
@@ -123,12 +138,13 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        if (!config.apiKey) {
-            updateStatus('Please set your API key first', 'error');
+        if (!config.memoryContent) {
+            updateStatus('Please enter your personal information first', 'error');
             settingsPanel.classList.remove('hidden');
             return;
         }
 
+        showLoading();
         updateStatus('Generating variation...');
         
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -140,8 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     action: 'generateResponse',
                     text: currentResponse,
                     style: style,
-                    wordLimit: config.wordLimit
+                    wordLimit: config.wordLimit,
+                    memoryContent: config.memoryContent
                 }, function(response) {
+                    hideLoading();
                     if (chrome.runtime.lastError) {
                         updateStatus('Error: ' + chrome.runtime.lastError.message, 'error');
                         return;
@@ -157,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             }).catch(error => {
+                hideLoading();
                 updateStatus('Error: ' + error.message, 'error');
             });
         });

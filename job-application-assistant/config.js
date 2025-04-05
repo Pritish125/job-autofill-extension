@@ -2,7 +2,8 @@
 const config = {
     apiKey: 'AIzaSyCFHhM54A-W00_lKYRWr-9ftA2gq32hewU', // Your Gemini API key will be stored here
     wordLimit: 50, // Default word limit
-    wordLimitOptions: [25, 50, 75, 100, 150, 200] // Available word limit options
+    wordLimitOptions: [25, 50, 75, 100, 150, 200], // Available word limit options
+    memoryContent: '' // User's personal information
 };
 
 // Save configuration to Chrome storage

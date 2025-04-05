@@ -50,14 +50,26 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         return true; // Required for async response
     } else if (request.action === 'generateResponse') {
         const selectedText = window.getSelection().toString().trim();
-        if (selectedText) {
-            generateResponseForText(selectedText)
-                .then(response => sendResponse({ text: response }))
-                .catch(error => sendResponse({ error: error.message }));
-            return true; // Required for async response
-        } else {
-            sendResponse({ error: 'No text selected' });
+        
+        if (!selectedText) {
+            sendResponse({ error: 'Please select some text first' });
+            return;
         }
+
+        // Send the request to background script
+        chrome.runtime.sendMessage({
+            action: 'generateResponseForText',
+            text: selectedText,
+            wordLimit: request.wordLimit,
+            memoryContent: request.memoryContent
+        }, function(response) {
+            if (response.error) {
+                sendResponse({ error: response.error });
+            } else {
+                sendResponse({ text: response.text });
+            }
+        });
+        return true; // Required for async response
     }
 });
 
