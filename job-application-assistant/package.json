@@ -1,0 +1,11 @@
+{
+  "name": "job-application-assistant",
+  "version": "1.0.0",
+  "description": "Chrome extension for automating job application form filling",
+  "scripts": {
+    "convert-icons": "node convert_icons.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.2"
+  }
+} 

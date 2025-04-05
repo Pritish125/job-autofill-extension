@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Application Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Job Application Assistant</h1>
+            <button id="settings-toggle" class="btn small">⚙️</button>
+        </div>
+        
+        <div class="status-container">
+            <div id="status" class="status">Ready to assist</div>
+        </div>
+
+        <div class="instructions">
+            <p>1. Select any text from the job application</p>
+            <p>2. Click "Generate Response" to get a personalized answer</p>
+        </div>
+
+        <div class="actions">
+            <button id="generate-response" class="btn primary">Generate Response</button>
+        </div>
+
+        <div class="response-container">
+            <h2>Generated Response</h2>
+            <div id="response" class="response-box"></div>
+            <div class="variations">
+                <button id="formal" class="btn small">Formal</button>
+                <button id="casual" class="btn small">Casual</button>
+                <button id="detailed" class="btn small">Detailed</button>
+                <button id="copy" class="btn small">Copy</button>
+            </div>
+        </div>
+
+        <div id="settings-panel" class="settings hidden">
+            <h2>Settings</h2>
+            <div class="setting-item">
+                <label for="api-key">Gemini API Key:</label>
+                <input type="password" id="api-key" placeholder="Enter your API key">
+            </div>
+            <div class="setting-item">
+                <label for="word-limit">Word Limit:</label>
+                <select id="word-limit">
+                    <option value="25">25 words</option>
+                    <option value="50">50 words</option>
+                    <option value="75">75 words</option>
+                    <option value="100">100 words</option>
+                    <option value="150">150 words</option>
+                    <option value="200">200 words</option>
+                </select>
+            </div>
+            <button id="save-settings" class="btn small">Save Settings</button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html> 

@@ -1,0 +1,164 @@
+Pritish Majumdar
+B.Tech CSE Student | AI & Blockchain Developer | Full-Stack Enthusiast
+Lovely Professional University, India
+📧 pritishmajumdar066@gmail.com | 📞 +91-7864890821 
+
+Objective
+Motivated and technically skilled second-year B.Tech Computer Science and Engineering student at Lovely Professional University with a deep interest in artificial intelligence, blockchain, and full-stack development. I specialize in designing innovative, scalable software solutions that bridge modern technologies with real-world applications. Eager to apply my knowledge and gain experience through internships, freelance projects, or collaborative development roles where I can contribute to the team's technical growth and user-focused impact.
+
+Education
+Bachelor of Technology in Computer Science and Engineering
+Lovely Professional University, India
+2023 – 2027 (Expected)
+
+CGPA: 9.46
+
+Academic Highlights:
+
+Data Structures and Algorithms: Proficient in BFS, DFS, Warshall's Algorithm, and Floyd-Warshall shortest path algorithm.
+
+Computer Networks: Studied IPv4/IPv6 Headers, Error Detection methods (CRC, Hamming Code, Checksum), and Data Link Layer Protocols.
+
+Software Engineering, DBMS, and Object-Oriented Programming with real-world application focus.
+
+Hands-on labs involving protocol simulation and socket programming basics.
+
+Technical Skills
+Programming Languages:
+
+Python (Advanced): Web development, ML pipelines, backend scripting
+
+C++ (Proficient): Algorithm design, OOP, queue/stack simulations
+
+JavaScript (Intermediate): Frontend logic, DOM manipulation
+
+Frameworks & Libraries:
+
+Django: REST APIs, ORM, authentication systems, admin dashboards
+
+Flask: Lightweight web services, AI/chatbot deployment
+
+scikit-learn, Pandas: Regression, classification, data preprocessing
+
+Blockchain & Crypto:
+
+Solidity: Smart contract development (ERC-20 standard)
+
+Web3.js: Interacting with Ethereum nodes
+
+Crypto Wallet Integration: Basic wallet management inside apps
+
+APIs & Tools:
+
+Gemini API: Natural language understanding and AI-enhanced logic
+
+Alpaca API: Live stock trading and portfolio management
+
+Discord API: Chatbot development
+
+Git & GitHub: Version control, collaborative workflow
+
+SQLite, PostgreSQL: Database management in Django projects
+
+Projects
+Krishimitra – Blockchain-Powered Farming App
+Tech Stack: Django, Solidity, Web3, PostgreSQL
+
+Developed a decentralized farming data storage system using blockchain.
+
+Integrated a secure crypto wallet to enable transparent, trust-based payments between farmers, vendors, and distributors.
+
+Smart contracts enabled tamper-proof storage of crop records, soil info, and transaction logs.
+
+Backend built with Django to manage users, roles, and dashboards.
+
+Fraud Transaction Detector – AI with Gemini
+Tech Stack: Django, Gemini API, scikit-learn
+
+Built an intelligent fraud detection engine that analyzes transaction patterns in real time.
+
+Used Gemini API for interpreting transaction metadata and flagging anomalies.
+
+Designed an interactive Django admin dashboard for visualizing flagged activity, user profiling, and logs.
+
+Supports continuous model updates and dynamic thresholding.
+
+Gift Suggestor – Personalized Gifting Assistant
+Tech Stack: Django, Gemini AI, HTML/CSS
+
+AI-powered application that suggests gifts based on user sentiment, interests, and occasion.
+
+Gemini-powered language understanding processes natural user inputs.
+
+Django backend handles dynamic gift mapping, search filtering, and session management.
+
+Language Survival – AI Translation Tool for Travelers
+Tech Stack: Django, Python, AI Model Integration
+
+Created a multilingual survival assistant supporting 9 major languages (English, Hindi, Spanish, French, Chinese, Arabic, German, Russian, Japanese).
+
+Designed to help travelers or emergency responders communicate basic phrases in unfamiliar languages.
+
+Integrated basic NLP for input recognition and auto-translation using AI logic.
+
+Django manages multilingual database, UI prompts, and user input logging.
+
+Intraday Trading Bot – ML-powered Trading Assistant
+Tech Stack: Python, scikit-learn, Alpaca API
+
+Implemented a real-time stock trading bot that uses an ML model to classify stock momentum from -1 (bearish) to +1 (bullish).
+
+Executes trades using Alpaca’s brokerage API based on confidence thresholds.
+
+Includes historical data analysis, model re-training, and capital exposure control.
+
+AI-Based Personal Therapy Chatbot
+Tech Stack: Flask, Gemini API, HTML/CSS
+
+Designed an emotional wellness chatbot for users suffering from stress or anxiety.
+
+Flask backend integrated Gemini AI for engaging, empathetic, and safe conversations.
+
+Deployed as a lightweight web app for fast interaction and anonymous usage.
+
+ERC-20 Crypto Token System
+Tech Stack: Solidity, Web3.js, Remix IDE
+
+Created and deployed a fully functional ERC-20 token.
+
+Designed smart contract with minting, transferring, and burning capabilities.
+
+Used for simulated payments inside other personal applications.
+
+Discord Uplift Bot
+Tech Stack: Python, Discord API
+
+Developed a chatbot that delivers motivational quotes and messages on command.
+
+Lightweight deployment on cloud with command recognition and mood-based triggers.
+
+Car Simulation System (C++)
+Developed an object-oriented simulation for car management functions like ignition, acceleration, and fuel monitoring.
+
+Demonstrated understanding of encapsulation, inheritance, and class behavior.
+
+Restaurant Queue Management System (C++)
+Implemented a queue-based order handling mechanism using structs and FIFO logic.
+
+Allowed user ID registration, order handling, and priority control.
+
+Core Competencies
+Backend Development: Strong grasp on Django/Flask-based API systems, model-view-template architecture, and scalable RESTful service creation.
+
+AI & ML Integration: Experience embedding ML/NLP logic into live applications using APIs and trained models.
+
+Blockchain Systems: Practical exposure to Ethereum smart contracts, ERC-20 token creation, and wallet integration for secure decentralized platforms.
+
+Problem Solving: Skilled at designing and implementing data structures and algorithms from scratch in C++.
+
+Code Quality: Prefers clean, minimalist code—avoids over-reliance on standard libraries unless necessary. Prioritizes readability and performance.
+
+Project Versatility: Capable of switching between multiple domains—AI, finance, health tech, blockchain—with strong foundational adaptability.
+
+Independent Builder: Most projects are self-driven from concept to deployment, with a focus on solving real-world pain points.
+

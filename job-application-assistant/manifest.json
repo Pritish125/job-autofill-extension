@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Job Application Assistant",
+  "version": "1.0",
+  "description": "Automatically fills job application forms using your personal information and Gemini AI",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.google.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/ChatGPT Image Apr 5, 2025, 04_33_22 PM.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "icons/ChatGPT Image Apr 5, 2025, 04_33_22 PM.png"
+  }
+} 
